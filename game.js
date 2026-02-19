@@ -637,6 +637,22 @@ class Game {
         this.goToMenu();
       }
     });
+
+    // Mute button
+    this.muted = false;
+    const muteBtn = document.getElementById('mute-btn');
+    muteBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.muted = !this.muted;
+      sfx.enabled = !this.muted;
+      if (this.muted) {
+        music.stop();
+        muteBtn.textContent = '🔇';
+      } else {
+        if (this.running && !this.paused) music.start();
+        muteBtn.textContent = '🔊';
+      }
+    });
   }
 
   setupInput() {
@@ -754,7 +770,7 @@ class Game {
     if(this.paused){
       this.paused=false; this.running=true;
       document.getElementById('pause-overlay').classList.add('hidden');
-      music.start();
+      if (!this.muted) music.start();
       this.lastTime=performance.now();
       requestAnimationFrame((t)=>this.loop(t));
     } else {
@@ -796,7 +812,7 @@ class Game {
       this.board1.spawn(); this.board2.spawn();
       this.running=true; this.lastTime=performance.now();
       this.board1.dropCounter=0; this.board2.dropCounter=0;
-      music.start();
+      if (!this.muted) music.start();
       requestAnimationFrame((t)=>this.loop(t));
     });
   }
