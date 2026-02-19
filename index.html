@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Tetris VS IA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0a1a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+</head>
+<body>
+
+  <!-- Rotate phone prompt -->
+  <div id="rotate-prompt">
+    <div class="rotate-icon">&#8634;</div>
+    <p>Voltea el cel, compa</p>
+  </div>
+
+  <div id="menu-screen">
+    <h1>TETRIS</h1>
+    <h2>VS IA</h2>
+
+    <div id="high-scores">
+      <h3>LOS MEROS MEROS</h3>
+      <ol id="score-list"></ol>
+    </div>
+
+    <div class="difficulty-select">
+      <button class="diff-btn" data-diff="easy">R2-D2</button>
+      <button class="diff-btn selected" data-diff="medium">RoboCop</button>
+      <button class="diff-btn" data-diff="hard">T-800</button>
+    </div>
+
+    <button id="btn-start">DALE!</button>
+
+    <div class="controls-info desktop-only">
+      <p><kbd>&larr;</kbd><kbd>&rarr;</kbd> Mover &nbsp; <kbd>&uarr;</kbd> Rotar &nbsp; <kbd>&darr;</kbd> Bajar &nbsp; <kbd>Q</kbd> Drop &nbsp; <kbd>Espacio</kbd> Pausa</p>
+    </div>
+    <div class="controls-info mobile-only">
+      <p>Swipe &larr;&rarr; mover &nbsp; Tap rotar &nbsp; Swipe &darr; drop</p>
+    </div>
+  </div>
+
+  <div id="game-screen" class="hidden">
+    <div class="game-container">
+      <div class="player-section" id="section-p1">
+        <div class="player-header">
+          <h2>Tu</h2>
+          <div class="stats-inline">
+            <span id="score1">0</span>pts
+            <span id="lines1">0</span>L
+            Nv<span id="level1">1</span>
+          </div>
+          <canvas id="next1" width="80" height="80"></canvas>
+        </div>
+        <canvas id="board1" width="240" height="480"></canvas>
+      </div>
+
+      <div class="center-info">
+        <div id="game-btns">
+          <button id="pause-btn" title="Pausa">⏸</button>
+          <button id="restart-btn" title="Reiniciar">↻</button>
+          <button id="menu-btn" title="Menu">☰</button>
+        </div>
+        <div id="countdown" class="hidden"></div>
+        <div id="pause-overlay" class="hidden">
+          <h2>AGUANTA</h2>
+          <p>Toca pa' seguirle</p>
+        </div>
+        <div id="game-over-msg" class="hidden">
+          <h2>YA VALIO!</h2>
+          <p id="winner-text"></p>
+          <div id="final-scores"></div>
+          <div id="new-highscore" class="hidden">
+            <p class="new-hs-text">NUEVO RECORD, CRACK!</p>
+          </div>
+          <button id="btn-restart">OTRA VEZ</button>
+          <button id="btn-menu">AL MENU</button>
+        </div>
+      </div>
+
+      <div class="player-section" id="section-p2">
+        <div class="player-header">
+          <h2 id="p2-label">IA</h2>
+          <div class="stats-inline">
+            <span id="score2">0</span>pts
+            <span id="lines2">0</span>L
+            Nv<span id="level2">1</span>
+          </div>
+          <canvas id="next2" width="80" height="80"></canvas>
+        </div>
+        <canvas id="board2" width="240" height="480"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="512" height="512" fill="#0a0a1a"/>
+
+  <!-- Grid pattern for tetris feel -->
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1a1a3a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="url(#grid)"/>
+
+  <!-- I-piece (cyan) - horizontal -->
+  <rect x="80" y="120" width="120" height="32" fill="#00f0ff" rx="4"/>
+
+  <!-- O-piece (yellow) - 2x2 square -->
+  <rect x="280" y="100" width="32" height="32" fill="#ffdd00" rx="4"/>
+  <rect x="320" y="100" width="32" height="32" fill="#ffdd00" rx="4"/>
+  <rect x="280" y="140" width="32" height="32" fill="#ffdd00" rx="4"/>
+  <rect x="320" y="140" width="32" height="32" fill="#ffdd00" rx="4"/>
+
+  <!-- T-piece (purple) -->
+  <rect x="120" y="240" width="32" height="32" fill="#aa00ff" rx="4"/>
+  <rect x="160" y="240" width="32" height="32" fill="#aa00ff" rx="4"/>
+  <rect x="200" y="240" width="32" height="32" fill="#aa00ff" rx="4"/>
+  <rect x="160" y="280" width="32" height="32" fill="#aa00ff" rx="4"/>
+
+  <!-- S-piece (green) -->
+  <rect x="320" y="260" width="32" height="32" fill="#00ff66" rx="4"/>
+  <rect x="360" y="260" width="32" height="32" fill="#00ff66" rx="4"/>
+  <rect x="280" y="300" width="32" height="32" fill="#00ff66" rx="4"/>
+  <rect x="320" y="300" width="32" height="32" fill="#00ff66" rx="4"/>
+
+  <!-- Z-piece (red) -->
+  <rect x="80" y="320" width="32" height="32" fill="#ff3333" rx="4"/>
+  <rect x="120" y="320" width="32" height="32" fill="#ff3333" rx="4"/>
+  <rect x="120" y="360" width="32" height="32" fill="#ff3333" rx="4"/>
+  <rect x="160" y="360" width="32" height="32" fill="#ff3333" rx="4"/>
+
+  <!-- L-piece (blue) -->
+  <rect x="280" y="360" width="32" height="32" fill="#0066ff" rx="4"/>
+  <rect x="280" y="400" width="32" height="32" fill="#0066ff" rx="4"/>
+  <rect x="280" y="440" width="32" height="32" fill="#0066ff" rx="4"/>
+  <rect x="320" y="440" width="32" height="32" fill="#0066ff" rx="4"/>
+
+  <!-- J-piece (orange) -->
+  <rect x="380" y="380" width="32" height="32" fill="#ff8800" rx="4"/>
+  <rect x="380" y="420" width="32" height="32" fill="#ff8800" rx="4"/>
+  <rect x="340" y="420" width="32" height="32" fill="#ff8800" rx="4"/>
+
+  <!-- Glow effect -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
